@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import Article from './components/Article';
 
 function Modal(){
   return(
@@ -24,50 +25,40 @@ function Header(){
 }
 
 function App(){
-  const [title, setTitle] = useState(['남자코트 추천', '강남 우동맛집', '파이썬독학']);
-  const [likes, setLikes] = useState([0,0,0]);
-  const [man, setMan] = useState(true);
 
-  function addLike(index){
-    const updatedLike = [...likes];
-    updatedLike[index] += 1;
-    setLikes(updatedLike);
-  }
-
-  function toggleTitle(){
-    setMan(prevMan => {
-      const newMan = !prevMan;
-      const updatedTitle = [...title];
-      updatedTitle[0] = newMan ? '남자코트 추천' : '여자코트 추천';
-      setTitle(updatedTitle);
-      return newMan;
-    });
-  }
 
   function sort(){
-    const sortedTitle = [...title].sort();
-    setTitle(sortedTitle);
-    const sortedLikes = [...likes].sort();
-    setLikes(sortedLikes);
+    const sortedArticles = [...articles].sort((a,b) => a.title.localeCompare(b.title));
+    setArticles(sortedArticles);
+  }
+
+  const [articles, setArticles] = useState(
+    [
+      {title:'남자코트 추천', content:'2월 17일 발행', likes:0},
+      {title:'강남 우동맛집', content:'2월 18일 발행', likes:0},
+      {title:'파이썬독학', content:'2월 19일 발행', likes:0}
+    ]
+  );
+
+  function addLike(index){
+    const copy = [...articles];
+    copy[index].likes += 1;
+    setArticles(copy);
   }
 
   return(
     <div className="App">
       <Header></Header>
 
-      {title.map((item, index) => (
-        <div className='list' key={index}>
-          <h4 style={{fontSize: '20px', display: 'inline'}}>
-            {item}
-            <span onClick={() => addLike(index)}>❤️</span>
-            {likes[index]}
-          </h4>
-          <p>2월 {17 + index}일 발행</p>
-        </div>
+      {articles.map((item, index) => (
+        <Article 
+          title={item.title}
+          content={item.content}
+          likes={item.likes}
+          addLike={() => addLike(index)}>
+        </Article>
       ))}
-
-      <button onClick={sort}>가나다 정렬</button> 
-      <Modal></Modal>
+      <button onClick={sort}>글 정렬</button>
     </div>
   );
 }
