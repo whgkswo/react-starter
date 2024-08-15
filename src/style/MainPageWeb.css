@@ -1,0 +1,80 @@
+.header{
+    display: flex;
+    font-size: 10px;
+    color: rgb(135, 53, 173);
+    background: white;
+    text-align: left;
+    /* padding-top: 1%; */
+    padding-left: 10%;
+    gap:10%;
+    align-items: center;
+  }
+.Main{
+    background: rgb(56, 43, 77);
+    color: white;
+    height: 500px;
+    display: flex;
+    padding-left: 300px;
+}
+.main-text{
+    padding-top: 100px;
+    text-align: right;
+}
+.main-large{
+    font-size: 50px;
+    font-weight: bold;
+}
+.main-small{
+    padding-top: 20px;
+    font-size: 20px;
+}
+.test-start{
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: purple;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+#main-banner{
+    width: 500px;
+    height: 500px;
+    margin-right: 300px;
+}
+#mypage-icon{
+    width: 50px;
+    height: 50px;
+}
+.main-contents{
+    text-align: left;
+    padding-left: 17%;
+    font-size: 35px;
+}
+#menu-container{
+    display: flex;
+    gap: 70px;
+    padding-right: 200px;
+}
+.image-container{
+    display: flex;
+    padding-left: 17%;
+    gap: 50px;
+}
+.main-person{
+    width: 200px;
+    height: 250px;
+    border-radius: 15px;
+}
+.footer-container{
+    display:flex;
+    padding-left: 25%;
+    gap: 20%;
+    text-align: left;
+    color: rgb(64, 64, 64);
+}
+.main-footer{
+    margin-top: 100px;
+    border-top: 1px  solid grey;
+    padding-bottom: 50px;
+}
